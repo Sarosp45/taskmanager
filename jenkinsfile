@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from Git repository
-                git 'https://github.com/yourusername/your-django-project.git'
+                git 'https://github.com/Sarosp45/taskmanager.git'
             }
         }
 
