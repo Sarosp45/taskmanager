@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ note.title }}</title>
+</head>
+<body style="font-family: 'Arial', sans-serif; background-color: #f7f7f7; margin: 20px;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #333;">{{ note.title }}</h2>
+        <p>{{ note.content }}</p>
+        <a href="{% url 'edit_note' note.id %}" style="text-decoration: none; color: #007bff; margin-right: 10px;">Edit Note</a>
+        <a href="{% url 'delete_note' note.id %}" style="text-decoration: none; color: #d9534f;">Delete Note</a>
+        <br>
+        <a href="{% url 'note_list' %}" style="text-decoration: none; color: #007bff; margin-top: 10px;">Back to Note List</a>
+    </div>
+</body>
+</html>

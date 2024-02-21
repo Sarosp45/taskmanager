@@ -1,0 +1,20 @@
+<!-- notes/note_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note List</title>
+</head>
+<body style="font-family: 'Arial', sans-serif; background-color: #f7f7f7; margin: 20px;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #333;">Note List</h2>
+        <ul style="list-style-type: none; padding: 0;">
+            {% for note in notes %}
+                <li style="background-color: #fff; border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
+                    <a href="{% url 'note_detail' note.id %}" style="text-decoration: none; color: #007bff;">{{ note.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_note' %}" style="text-decoration: none; color: #007bff;">Add Note</a>
+    </div>
+</body>
+</html>

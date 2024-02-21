@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if note %}Edit Note{% else %}Add Note{% endif %}</title>
+</head>
+<body style="font-family: 'Arial', sans-serif; background-color: #f7f7f7; margin: 20px;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #333;">{% if note %}Edit Note{% else %}Add Note{% endif %}</h2>
+        <form method="post" action="{% if note %}{% url 'edit_note' note.id %}{% else %}{% url 'add_note' %}{% endif %}" style="background-color: #fff; border: 1px solid #ddd; padding: 20px; max-width: 400px;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save" style="background-color: #007bff; color: #fff; padding: 10px 15px; border: none; cursor: pointer;">
+        </form>
+        <a href="{% url 'note_list' %}" style="text-decoration: none; color: #007bff; margin-top: 10px; display: block;">Cancel</a>
+    </div>
+</body>
+</html>
