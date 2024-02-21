@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from Git repository
+                git 'https://github.com/yourusername/your-django-project.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'python manage.py test'
+                sh 'python manage.py runserver'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build successful! You can add deployment steps here.'
+        }
+        failure {
+            echo 'Build failed! Take necessary actions for failure.'
+        }
+    }
+}
